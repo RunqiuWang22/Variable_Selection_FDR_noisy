@@ -18,24 +18,6 @@ datagen<-function(n,p,rho,effect,interc){
   return(list(data=data,beta=beta))
 }
 
-datagen.example<-function(n,p,rho,effect,interc){
-  ###n sample size
-  ###p number of predictors
-  ###rho correlation parameter for design matrix X
-  ###effect: effect scale multiplier
-  Sigma<-(1/n)*rho^abs(outer(1:p,1:p,"-"))
-  X<-mvrnorm(n=n,mu=rep(0,p),Sigma=Sigma)
-  b0=rep(3.5,60)
-  beta=c(b0,rep(0,p-length(b0)))*effect
-  beta<-beta*(-1)^(runif(length(beta))>0.5)
-  logit <- function(x) {(1+exp(-x))^(-1)}
-  Y<-rbinom(n, size = 1, prob = logit(X %*% beta+interc))
-  data<-cbind(Y,X)
-  data<-data.frame(data)
-  names(data)=c("Y",paste("X",1:p,sep=""))
-  return(list(data=data,beta=beta))
-}
-
 ###generate data with measurement errors
 datamea<- function(data,sigmae,scale){
   ###data without measurement error
