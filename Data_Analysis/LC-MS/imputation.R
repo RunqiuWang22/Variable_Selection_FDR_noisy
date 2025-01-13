@@ -1,4 +1,4 @@
-setwd("/Users/runqiuwang/Downloads/Dr.Dai's project/2022Spring_project/real/")
+setwd("./")
 source("Rcode/estimation.r")
 final_p=read.csv("LCMS/Multi/final_p.csv")
 final_p=final_p[,-1]
