@@ -1,4 +1,4 @@
-setwd("/Volumes/Runqiu Wang/Dr.Dai's project/2022Spring_project/real/LCMS/Multi/")
+setwd("./")
 
 ### combine Z and Ztilde
 whole = function(ZZ,stat,cancer,name){
